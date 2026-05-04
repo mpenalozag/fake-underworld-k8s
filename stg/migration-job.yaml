@@ -13,7 +13,7 @@ spec:
       restartPolicy: Never
       containers:
         - name: migrate
-          image: ghcr.io/__GITHUB_USER__/poc-app:placeholder
+          image: ghcr.io/mpenalozag/poc-app:placeholder
           command: ["bundle", "exec", "rake", "db:migrate"]
           env:
             - name: DATABASE_URL

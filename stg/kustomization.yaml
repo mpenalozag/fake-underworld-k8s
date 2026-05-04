@@ -9,8 +9,8 @@ resources:
 # image-updater reescribe newTag cada vez que hay una imagen nueva con tag matching
 # el regex de la Application (^[a-f0-9]{40}$ para stg).
 images:
-  - name: ghcr.io/__GITHUB_USER__/poc-app
-    newTag: __INITIAL_SHA__
+  - name: ghcr.io/mpenalozag/poc-app
+    newTag: 5a6df720540c20d95d530d3fd6885511223d5d20
 
 commonLabels:
   fintoc_com_repo: poc-app

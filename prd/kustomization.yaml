@@ -7,8 +7,8 @@ resources:
   - service.yaml
 
 images:
-  - name: ghcr.io/__GITHUB_USER__/poc-app
-    newTag: prod-__INITIAL_SHA__
+  - name: ghcr.io/mpenalozag/poc-app
+    newTag: prod-5a6df720540c20d95d530d3fd6885511223d5d20
 
 commonLabels:
   fintoc_com_repo: poc-app
