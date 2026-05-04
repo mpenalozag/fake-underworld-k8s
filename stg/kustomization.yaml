@@ -9,7 +9,7 @@ resources:
 # el regex de la Application (^[a-f0-9]{40}$ para stg).
 images:
   - name: ghcr.io/mpenalozag/poc-app
-    newTag: 1777921542-59e859397b1ab522aaf698d9d42d5f064fd11381
+    newTag: 1777924775-39bcc1930b969051426f5864f24b478ceafba7d8
 commonLabels:
   fintoc_com_repo: poc-app
   fintoc_com_env: staging
