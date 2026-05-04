@@ -1,0 +1,18 @@
+# Simula el overlay de us-west1 en producción real:
+# - SIN migration-job (las DBs de west son réplicas read-only en producción).
+# - El Rollout subscribe SOLO a on-rollout-failed (no a completed).
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: poc-app
+resources:
+  - rollout.yaml
+  - service.yaml
+
+images:
+  - name: ghcr.io/__GITHUB_USER__/poc-app
+    newTag: prod-__INITIAL_SHA__
+
+commonLabels:
+  fintoc_com_repo: poc-app
+  fintoc_com_env: production
+  fintoc_com_target: poc-app-prd-us-west1

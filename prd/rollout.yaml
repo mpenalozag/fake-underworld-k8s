@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: poc-app-prd
+  annotations:
+    notifications.argoproj.io/subscribe.on-rollout-completed.hive: ""
+    notifications.argoproj.io/subscribe.on-rollout-failed.hive: ""
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: poc-app-prd
+  template:
+    metadata:
+      labels:
+        app: poc-app-prd
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/__GITHUB_USER__/poc-app:placeholder
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DATABASE_URL
+              value: postgres://poc:poc@postgres.poc-app.svc.cluster.local:5432/poc
+            - name: RACK_ENV
+              value: production
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+  strategy:
+    canary:
+      steps: []
+      maxSurge: 1
+      maxUnavailable: 0
+  progressDeadlineSeconds: 300

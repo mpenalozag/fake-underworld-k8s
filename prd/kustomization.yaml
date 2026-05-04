@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: poc-app
+resources:
+  - rollout.yaml
+  - migration-job.yaml
+  - service.yaml
+
+images:
+  - name: ghcr.io/__GITHUB_USER__/poc-app
+    newTag: prod-__INITIAL_SHA__
+
+commonLabels:
+  fintoc_com_repo: poc-app
+  fintoc_com_env: production
+  fintoc_com_target: poc-app-prd

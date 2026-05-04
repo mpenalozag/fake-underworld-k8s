@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: poc-app-prd-west-sim
+spec:
+  selector:
+    app: poc-app-prd-west-sim
+  ports:
+    - port: 3000
+      targetPort: 3000

@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: poc-app-prd-west-sim
+  annotations:
+    # us-west1 NO subscribe a on-rollout-completed (paridad con plan).
+    # Solo notifica fallas para preservar visibilidad de fallas regionales.
+    notifications.argoproj.io/subscribe.on-rollout-failed.hive: ""
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: poc-app-prd-west-sim
+  template:
+    metadata:
+      labels:
+        app: poc-app-prd-west-sim
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/__GITHUB_USER__/poc-app:placeholder
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DATABASE_URL
+              value: postgres://poc:poc@postgres.poc-app.svc.cluster.local:5432/poc
+            - name: RACK_ENV
+              value: production
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+  strategy:
+    canary:
+      steps: []
+      maxSurge: 1
+      maxUnavailable: 0
+  progressDeadlineSeconds: 300

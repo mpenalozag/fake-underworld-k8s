@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: poc-app-stg-migrate
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: migrate
+          image: ghcr.io/__GITHUB_USER__/poc-app:placeholder
+          command: ["bundle", "exec", "rake", "db:migrate"]
+          env:
+            - name: DATABASE_URL
+              value: postgres://poc:poc@postgres.poc-app.svc.cluster.local:5432/poc
+            - name: RACK_ENV
+              value: production
