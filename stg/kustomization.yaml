@@ -12,5 +12,6 @@ images:
     newTag: 1777924775-39bcc1930b969051426f5864f24b478ceafba7d8
 commonLabels:
   fintoc_com_repo: poc-app
+  fintoc_com_team: platform
   fintoc_com_env: staging
   fintoc_com_target: poc-app-stg
