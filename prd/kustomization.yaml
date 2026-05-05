@@ -7,7 +7,7 @@ resources:
   - service.yaml
 images:
   - name: ghcr.io/mpenalozag/poc-app
-    newTag: prod-1777997661-aae57a01d6b5904e16469d2cea572d8f9dd77359
+    newTag: prod-1778000325968055000-153fd14ad71cfebc21a61cbfb4c05d44d0742258
 commonLabels:
   fintoc_com_repo: poc-app
   fintoc_com_env: production
