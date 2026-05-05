@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: poc-app-stg
+  namespace: argocd
+  labels:
+    fintoc_com_repo: poc-app
+    fintoc_com_env: staging
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/mpenalozag/fake-underworld-k8s.git
+    targetRevision: HEAD
+    path: stg
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: poc-app
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=false
