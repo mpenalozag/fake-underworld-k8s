@@ -7,11 +7,9 @@ namespace: poc-app
 resources:
   - rollout.yaml
   - service.yaml
-
 images:
   - name: ghcr.io/mpenalozag/poc-app
-    newTag: prod-5a6df720540c20d95d530d3fd6885511223d5d20
-
+    newTag: prod-1777997661-aae57a01d6b5904e16469d2cea572d8f9dd77359
 commonLabels:
   fintoc_com_repo: poc-app
   fintoc_com_env: production
