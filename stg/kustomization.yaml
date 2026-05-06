@@ -5,7 +5,7 @@ resources:
   - rollout.yaml
   - migration-job.yaml
   - service.yaml
-# image-updater reescribe newTag cada vez que hay una imagen nueva con tag matching
+# image-updater reescribe newTag cada vez que hay una imagen nueva (test trivial change)
 # el regex de la Application (^[a-f0-9]{40}$ para stg).
 images:
   - name: ghcr.io/mpenalozag/poc-app
