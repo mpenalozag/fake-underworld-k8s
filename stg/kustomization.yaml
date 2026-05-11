@@ -10,7 +10,7 @@ resources:
 images:
 - name: ghcr.io/mpenalozag/poc-app
   newName: ghcr.io/mpenalozag/poc-app
-  newTag: ca47d17fa917fed0c0d598ef2fb6069a27a4532f
+  newTag: bcf99a77429a443a83d862a4fbee47d782127a6b
 commonLabels:
   fintoc_com_env: staging
   fintoc_com_repo: poc-app
