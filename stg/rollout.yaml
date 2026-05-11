@@ -14,6 +14,9 @@ spec:
     metadata:
       labels:
         app: poc-app-stg
+        fintoc_com_repo: poc-app
+        fintoc_com_env: staging
+        fintoc_com_target: poc-app-stg
     spec:
       containers:
         - name: app

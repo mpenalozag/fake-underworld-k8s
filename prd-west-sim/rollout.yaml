@@ -15,6 +15,9 @@ spec:
     metadata:
       labels:
         app: poc-app-prd-west-sim
+        fintoc_com_repo: poc-app
+        fintoc_com_env: production
+        fintoc_com_target: poc-app-prd-west-sim
     spec:
       containers:
         - name: app
