@@ -2,13 +2,14 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: poc-app
 resources:
-  - rollout.yaml
-  - migration-job.yaml
-  - service.yaml
+- rollout.yaml
+- migration-job.yaml
+- service.yaml
 images:
-  - name: ghcr.io/mpenalozag/poc-app
-    newTag: prod-153fd14ad71cfebc21a61cbfb4c05d44d0742258
+- name: ghcr.io/mpenalozag/poc-app
+  newName: ghcr.io/mpenalozag/poc-app
+  newTag: prod-c82214c041c0c0954185f0217998ece4945e4d0c
 commonLabels:
-  fintoc_com_repo: poc-app
   fintoc_com_env: production
+  fintoc_com_repo: poc-app
   fintoc_com_target: poc-app-prd
