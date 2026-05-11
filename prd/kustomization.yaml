@@ -8,7 +8,7 @@ resources:
 images:
 - name: ghcr.io/mpenalozag/poc-app
   newName: ghcr.io/mpenalozag/poc-app
-  newTag: prod-262b6357ff61a4862553c47f2667169ba50f2959
+  newTag: prod-cd35a935e62f308d2840da6e04d086010e5367f2
 commonLabels:
   fintoc_com_env: production
   fintoc_com_repo: poc-app
