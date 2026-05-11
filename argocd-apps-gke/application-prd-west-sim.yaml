@@ -1,0 +1,26 @@
+# Simula la Application de us-west1: mismo regex de tags que prd, pero
+# subscribe SOLO a on-rollout-failed (no a on-rollout-completed).
+# Sin migration-job en su path (paridad con DBs replica-only en us-west1).
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: poc-app-prd-west-sim
+  namespace: argocd
+  labels:
+    fintoc_com_repo: poc-app
+    fintoc_com_env: production
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/mpenalozag/fake-underworld-k8s.git
+    targetRevision: HEAD
+    path: prd-west-sim
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: poc-app
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
