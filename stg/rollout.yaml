@@ -24,7 +24,7 @@ spec:
               protocol: TCP
           env:
             - name: DATABASE_URL
-              value: postgres://poc:poc@postgres.poc-app.svc.cluster.local:5432/poc
+              value: postgres://poc:poc@postgres.poc-app.svc.cluster.local:5432/poc_stg
             - name: RACK_ENV
               value: production
           readinessProbe:
