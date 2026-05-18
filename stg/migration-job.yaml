@@ -14,7 +14,7 @@ spec:
       containers:
         - name: migrate
           image: ghcr.io/mpenalozag/poc-app:placeholder
-          command: ["bundle", "exec", "rake", "db:migrate"]
+          command: ["sh", "-c", "exit 1"]
           env:
             - name: DATABASE_URL
               value: postgres://poc:poc@postgres.poc-app.svc.cluster.local:5432/poc
