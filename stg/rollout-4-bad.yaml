@@ -20,8 +20,9 @@ spec:
     spec:
       containers:
         - name: app
-          # INTENTIONALLY BAD image to make this rollout fail
-          image: ghcr.io/mpenalozag/poc-app:doesnotexist-rollout4
+          # INTENTIONALLY BAD image to make this rollout fail.
+          # Different repo name on purpose so the kustomization images: override does NOT rewrite it.
+          image: registry.example.invalid/nonexistent-app:fail
           resources: {}
           ports:
             - containerPort: 3000
