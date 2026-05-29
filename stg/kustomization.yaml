@@ -5,12 +5,13 @@ resources:
 - rollout.yaml
 - migration-job.yaml
 - service.yaml
+- postsync-noop.yaml
 # image-updater reescribe newTag cada vez que hay una imagen nueva con tag matching
 # el regex de la Application (^[a-f0-9]{40}$ para stg).
 images:
 - name: ghcr.io/mpenalozag/poc-app
   newName: ghcr.io/mpenalozag/poc-app
-  newTag: d75e5db5677882ccc23a1a7569b28a68470dc05f
+  newTag: 48219f7d12d2a78d23ec6f28325d8a789d16f0ec
 commonLabels:
   fintoc_com_env: staging
   fintoc_com_repo: poc-app
