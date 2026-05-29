@@ -3,13 +3,8 @@ kind: Kustomization
 namespace: poc-app
 resources:
 - rollout.yaml
-- rollout-2.yaml
-- rollout-3.yaml
-- rollout-4-bad.yaml
-- rollout-5.yaml
 - migration-job.yaml
 - service.yaml
-- postsync-noop.yaml
 # image-updater reescribe newTag cada vez que hay una imagen nueva con tag matching
 # el regex de la Application (^[a-f0-9]{40}$ para stg).
 images:
