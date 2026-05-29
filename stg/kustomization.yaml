@@ -3,6 +3,10 @@ kind: Kustomization
 namespace: poc-app
 resources:
 - rollout.yaml
+- rollout-2.yaml
+- rollout-3.yaml
+- rollout-4-bad.yaml
+- rollout-5.yaml
 - migration-job.yaml
 - service.yaml
 - postsync-noop.yaml

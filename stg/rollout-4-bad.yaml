@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: poc-app-stg
+  name: poc-app-stg-4
   annotations:
     notifications.argoproj.io/subscribe.on-rollout-completed.hive: ""
     notifications.argoproj.io/subscribe.on-rollout-failed.hive: ""
@@ -9,18 +9,19 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: poc-app-stg
+      app: poc-app-stg-4
   template:
     metadata:
       labels:
-        app: poc-app-stg
+        app: poc-app-stg-4
         fintoc_com_repo: poc-app
         fintoc_com_env: staging
         fintoc_com_target: poc-app-stg
     spec:
       containers:
         - name: app
-          image: ghcr.io/mpenalozag/poc-app:placeholder
+          # INTENTIONALLY BAD image to make this rollout fail
+          image: ghcr.io/mpenalozag/poc-app:doesnotexist-rollout4
           resources: {}
           ports:
             - containerPort: 3000
